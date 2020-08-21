@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+        <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    </head>
+    <body>
+        <div id = "root"></div> <!-- <div id='root'><button>Like</button></div>  결과를 예측할 수 있어야한다.-->
+        <script type="text/babel">
+            const e = React.createElement;
+
+            class LikeButton extends React.Component {
+                constructor(props) {
+                    super(props); // 컴퍼넌트가 실행될때 젤 먼저 실행되는것 class == 컴퍼넌트
+                    this.state = {
+                        liked: false,
+                    }
+                }
+
+                render() {
+                    return <button
+                    type="submit"
+                    onClick={() => {this.setState({liked : true})}}
+                    >{this.state.liked ? 'Liked' : 'Like'}</button>
+                    // return e('button', { onClick: () => {this.setState({liked : true})}, type: 'submit'}, 
+                    // this.state.liked === true ? 'Liked' : 'Like'); // <button onclick="() => {console.log('clicked') }">Like</button> 이런태그를 만들겠다라는 것이 된다.
+                } // 상태가 바뀌면 화면이 저절로 바뀐다. 
+                // JSX( JS + XML)
+            }
+        </script>
+        <script type="text/babel">
+            ReactDOM.render(<LikeButton />, document.querySelector('#root'))  //화면에다가 실제로 반영을 해준다. rendering
+        </script>
+    </body>
+</html>

@@ -1,0 +1,64 @@
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>구구단</title>
+        <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+        <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    </head>
+    <body>
+        <div id = "root"></div> <!-- <div id='root'><button>Like</button></div>  결과를 예측할 수 있어야한다.-->
+        <script type="text/babel">
+
+            class GuGuDan extends React.Component {
+                constructor(props) {
+                    super(props); // 컴퍼넌트가 실행될때 젤 먼저 실행되는것 class == 컴퍼넌트
+                    this.state = {
+                        first: Math.ceil(Math.random() * 9), // 랜덤값
+                        second: Math.ceil(Math.random() * 9),
+                        value : '',
+                        result : '', // 아무것도 없는것들은 원래 아무것도 없었기 때문에
+                    }
+                }
+
+                onSubmit = (e) => {
+                
+                        e.preventDefault();
+                        if(parseInt(this.state.value) === this.state.first * this.state.second) {
+                            this.setState({
+                                result: "정답",
+                                first: Math.ceil(Math.random() * 9),
+                                second: Math.ceil(Math.random() * 9),
+                                value : '',
+                            });
+                        } else {
+                            this.setState({
+                                result: "땡",
+                                value: '',
+                            })
+                        }
+                    
+                }
+
+                onChange = (e) => this.setState({value : e.target.value})
+                render() {
+                    return (
+                        <div>
+                            <div>{this.state.first}곱하기{this.state.second}는?</div>
+                    
+
+                    <form onSubmit = {this.onSubmit}>
+                        <input type="number" value={this.state.value} onChange={this.onChange}/>
+                        <button>입력!</button>
+                        </form>
+                            <div>{this.state.result}</div>
+                        </div>
+                    );
+            }
+        }
+        </script>
+        <script type="text/babel">
+            ReactDOM.render(<div><GuGuDan /><GuGuDan /><GuGuDan /></div>, document.querySelector('#root'))  //화면에다가 실제로 반영을 해준다. rendering
+        </script>
+    </body>
+</html>
