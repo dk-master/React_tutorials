@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
     mode: 'development',
@@ -23,6 +24,9 @@ module.exports = {
         }],
     },
 
+    plugins: [
+        new webpack.LoaderOptionsPlugin({debug: true}), //추가적으로 하고싶은 작업들 plugins 
+    ],
     output: {
         path : path.join(__dirname, 'dist'),
         filename : 'app.js',
