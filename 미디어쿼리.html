@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang ="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        body {background: #b71c1c; color : #fff;}
+        h1::before {content : '1. ';}
+        h1::after {content : ' - 기본'}
+
+        /* 화면 너비  0 ~ 1280px */
+        @media (max-width : 1280px) {
+            body {
+                background : #880e4f;
+            }
+            h1::before {content : '2. ';}
+            h1::after {content : ' - 1025px ~ 1280px'}
+        }
+
+        @media (max-width : 1024px) { /*데스크탑*/
+            body {background : #4a148c;}
+            h1::before {content : '3. ';}
+            h1::after {content : ' - 961px ~ 1024px'}
+        }
+
+        @media (max-width : 960px) {/* 노트북  */
+            body {background : #311b92;}
+            h1::before {content : '4. ';}
+            h1::after {content : ' - 769px ~ 960px'}
+        }
+
+        @media (max-width : 768px) {/* 테블릿 */
+            body {background : #4a148c;}
+            h1::before {content : '5. ';}
+            h1::after {content : ' - 0px ~ 576px'}
+        }
+
+        @media (max-width : 576px) {  /* 모바일  */
+            body {background : #004d40;}
+            h1 ::before {content : '6. ';}
+            h1 ::after {content : ' - 961px ~ 1024px'}
+        }
+    </style>
+</head>
+
+<body>
+    <h1>미디어쿼리</h1>
+    <p>미디어쿼리는 화면 크기에 따른 각각의 속성값을 지정하여 여러가지 화면을 구성하는 기술 (화면크기따라 레이아웃을 다르게 구현하는거)</p>
+    <p>@media only all and (조건문) {실행문}</p>
+    <ul>
+        <li>@media : 미디어쿼리가 시작됨을 표시합니다.</li>
+        <li>only : 미디어쿼리 구문을 해석하라는 명령어입니다.(생략가능)</li>
+        <li>all : 미디어 쿼리를 해석해야할 대상을 나타냄 (생략가능)
+            <ul>
+                <li>all : 모든 미디어 유형에서 사용할 CSS를 정의합니다.</li>
+                <li>print : 인쇄 장치에서 사용할 CSS를 정의합니다.</li>
+                <li>screen : 컴퓨터 스크린에서 사용할 CSS를 정의합니다.</li>
+                <li>aural : 화면을 읽어 소리로 출력해주는 장치에서 CSS를 정의합니다.</li>
+                <li>tv : TV에서 사용할 CSS를 정의합니다.</li>
+                <li>handheld : 손에 들고 다니는 장치를 사용할 CSS를 정의합니다.</li>
+                <li>projection : 프로젝트를 위한 사용할 CSS를 정의합니다.</li>
+            </ul>
+        </li>
+        <li>and : 앞과 뒤의 조건을 나타냅니다.(생략가능)</li>
+        <li>(조건문) : 해당조건을 실행할 수 있습니다.</li>
+        <li>{실행문} : 조건에 따른 실행을 설정할 수 있다. </li>
+    </ul>
+</body>
+ 
+
+</html>
