@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <title>Document</title>
     <style>
-        body {background: #b71c1c; color : #fff;}
+        /* 기본값 */
+        body {background: #b71c1c; color : #fff;} 
         h1::before {content : '1. ';}
         h1::after {content : ' - 기본'}
 
@@ -13,7 +14,7 @@
             body {
                 background : #880e4f;
             }
-            h1::before {content : '2. ';}
+            h1::before {content : '2. ';} /* 선택자 선택한 요소의 맨 마지막 자식으로 의사 요소를 하나 생성합니다 보통 content 속성과 함께 짝지어 요소에 장식용 콘텐츠를 추가할 때 사용*/
             h1::after {content : ' - 1025px ~ 1280px'}
         }
 
