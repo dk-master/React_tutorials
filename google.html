@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>구글화면 만들기</title>
+
+    <style type="text/css">
+    .top {
+        margin : 6px 6px;
+        float : right;
+
+    }
+    a{
+        text-decoration : none;
+        font-size : 10.5pt;
+        margin: 0px 10px;
+        color: grey;
+    }
+    #login {
+        background-color: #4485F3;
+        color : #ffffff;
+        width: 70px;
+        height:30px;
+        border : none;
+        vertical-align : middle;
+        margin : 10px 12px 10px 7px;
+        font-weight: bold;
+        font-size : 10pt;
+        border-radius: 2px;
+    }
+    #google {
+     display: block;                      /* 블록지정 */
+     width: 290px;                   
+     height: 100px;
+     margin: 180px auto 20px;   /* 바로 밑 검색창과 20px 떨어져있어라 */
+    }
+
+    #search {
+        margin : 0 auto;
+        display : block;
+        width : 550px;
+        height : 50px;
+        font-size : 15pt;
+        border : 1px solid gray;
+        border-radius : 80px/70px;
+    }
+
+    #box {
+        text-align : center;
+    }
+
+    #google_search{
+     width: 135px;
+     height: 40px;
+     margin: 30px 3px;
+     border: none;
+     background-color: #F4F4F4;
+     font-weight: bold;
+     color: grey;
+}
+
+    #Feeling_Lucky {
+        width: 180px;
+        height: 40px;
+        margin: 30px 3px;
+        border: none;
+        background-color: #F4F4F4;
+        font-weight: bold;
+        color: grey;
+    }
+
+    #bottom_1 {
+        border:1px solid #E4E4E4;
+        border-left : none;
+        border-right : none;
+        background-color: #F2F2F2;
+        height: 50px;
+        width: 100%;
+        min-width:1050px;   
+        bottom : 52px;
+        position: absolute;
+    }
+    #bottom_korea {
+        float: left;
+        padding : 15px;     
+    }
+    #bottom_2 {
+        border:1px solid #E4E4E4;
+        border-left : none;
+        border-right : none;
+        background-color: #F2F2F2;
+        height: 50px;
+        width: 100%;
+        min-width:1050px;
+        bottom : 0px;
+        position: absolute;
+    
+    }
+
+    #bottom_left{
+        float: left;
+        padding : 15px;
+    }
+    #bottom_right{
+        float: right;
+        padding : 15px;
+    }
+
+    </style>
+</head>
+<body>
+    <div class = "top">
+        <a href="https://www.google.com/intl/ko/gmail/about/#">Gmail</a>
+        <a href="https://www.google.co.kr/imghp?hl=ko&tab=wi&ei=s4dDWb7SFsmw0gTlr6eQBA&ved=0EKouCBUoAQ">이미지</a>
+        <a href="#"><img src="3.png" title="Google 앱"></a>
+        <input id="login" type="button" value="로그인">
+    </div>
+    <br>
+
+    <div>
+        <img id="google" src="google.png" title="Google">
+    </div>
+
+    <div>
+        <input id="search" type="text" title="검색">
+    </div>
+
+    <div id="box">
+        <input id="google_search" type="button" value="Google 검색">
+        <input id="Feeling_Lucky" type="button" value="I'm Feeling Lucky">
+    </div>
+    <div id="bottom_1">
+        <div id = "bottom_korea"></div>
+            <p>대한민국</p>
+        </div>
+    </div>
+    <div id= "bottom_2">
+    <div id="bottom_left">
+        <a href="https://www.google.co.kr/intl/ko/ads/?fg=1">광고</a>
+        <a href="https://www.google.co.kr/services/?fg=1#?modal_active=none">비즈니스</a>
+        <a href="https://www.google.co.kr/intl/ko/about/">Google 정보</a>      
+    </div>
+
+    <div id="bottom_right">
+        <a href="https://www.google.co.kr/intl/ko/policies/privacy/?fg=1">개인정보처리방침</a>
+        <a href="https://www.google.co.kr/intl/ko/policies/terms/regional.html">약관</a>
+        <a href="#">설정</a>
+    </div>
+</div>
+</body>
+</html>
