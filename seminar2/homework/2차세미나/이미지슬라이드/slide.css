@@ -1,0 +1,54 @@
+/* white-space: nowrap 속성 사용하면 부모의 틀을 깨버린다. */ 
+.section input[id*="slide"] { /* id값이 slide를 갖고 있는 값을 선택해서 ..*/
+    display:none;
+}
+
+.section .slidewrap {
+    max-width: 1200px;
+    margin:0 auto;
+    overflow : hidden; /* 영역을 벗어나면 안보이게 가리는 것*/
+}
+
+.section .slidewrap .slidelist {
+    white-space: nowrap; /* 줄바꿈을 없애는 */
+    font-size : 0; /* 안쪽 빈영역을 없애준다 */
+}
+.section .slidewrap .slidelist  > li { /* ㅇㅋ */
+    display:inline-block;
+    list-style: none;
+    vertical-align : middle;
+    width : 100%;
+    transition: all .5s; 
+}
+
+.section .slidewrap .slidelist  > li > a {
+    display:block; /*안쪽 컨텐츠를 다 담을 수 있도록 스타일 적용 */
+    position:relative; /* 라벨태그를 배치시킬껀데 기준을 잡을 수 있도록 */
+    list-style: none;
+}
+.section .slidewrap .slidelist  > li > a img {
+    width: 100%; /*  반응형으로 사용할 수 있게 이미지를*/
+}
+
+.section .slidewrap .slidelist  label {
+    position: absolute; /* 자율배치 가능*/
+    z-index : 10;
+    top: 50%; /* 위쪽으루부터50 */
+    transform:translateY(-50%);
+    padding:50px; /* 클릭할 수 있는 크기를 줌*/
+    cursor: pointer;
+}
+
+.section .slidewrap .slidelist  .left {
+    left:30px; /* 왼쪽 기준 30떨어지게 */
+    background: url("./img/left.png") center center / 100% no-repeat; /* 화살표 이미지를 백그라운드 속성으로 적용 */
+}
+
+.section .slidewrap .slidelist  .right {
+    right:30px;
+    background: url("./img/right.png") center center / 100% no-repeat;
+}
+
+.section [id="slide01"]:checked ~ .slidewrap .slidelist > li {transform:translateX(0%);} /* 클릭이 되면*/
+.section [id="slide02"]:checked ~ .slidewrap .slidelist > li {transform:translateX(-100%);}
+.section [id="slide03"]:checked ~ .slidewrap .slidelist > li {transform:translateX(-200%);}
