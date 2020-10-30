@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/26893368c7.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="slide.css">
     <title>Document</title>
 </head>
 <body>
@@ -15,33 +17,39 @@
             <ul class="slidelist" >
                 <li>
                     <a>
-                        <label for="slide03" class="left">
-                        <img src="./img/slide01.jpg">
-                        <label for="slide02" class="right"></label>
-                        </label>
+                        <label for="slide03" class="left"></label>
+                        <img src="../img/slide01.jpg">
+                        <label for="slide02" class="right"></label>            
                     </a>
                 </li>
                 <li>
                     <a>
-                        <label for="slide01" class="left">
-                        <img src="./img/slide02.jpg">
+                        <label for="slide01" class="left"> </label>
+                        <img src="../img/slide02.jpg">
                         <label for="slide03" class="right"></label>
-                        </label>
-
                     </a>
                 </li>
                 <li>
                     <a>
-                        <label for="slide02" class="left">
-                        <img src="./img/slide03.jpg">
+                        <label for="slide02" class="left"> </label>
+                        <img src="../img/slide03.jpg">
                         <label for="slide01" class="right"></label>
-                        </label>
-
+                    
                     </a>
                 </li>
-                
             </ul>
         </div>
     </div>
+    
+    <div class ="button">
+        <input type="checkbox" class="checkbox" id="checkbox">
+        <label for="checkbox" class ="label">
+            <i class="fas fa-moon"></i>
+            <i class="fas fa-sun"></i>
+            <div class="ball"></div>
+        </label>
+    </div>
+
+    <script src="slide.js"></script>
 </body>
 </html>

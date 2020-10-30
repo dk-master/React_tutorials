@@ -25,6 +25,7 @@
     display:block; /*안쪽 컨텐츠를 다 담을 수 있도록 스타일 적용 */
     position:relative; /* 라벨태그를 배치시킬껀데 기준을 잡을 수 있도록 */
     list-style: none;
+    overflow : hidden;
 }
 .section .slidewrap .slidelist  > li > a img {
     width: 100%; /*  반응형으로 사용할 수 있게 이미지를*/
@@ -32,7 +33,7 @@
 
 .section .slidewrap .slidelist  label {
     position: absolute; /* 자율배치 가능*/
-    z-index : 10;
+    z-index : 1;
     top: 50%; /* 위쪽으루부터50 */
     transform:translateY(-50%);
     padding:50px; /* 클릭할 수 있는 크기를 줌*/
@@ -40,15 +41,84 @@
 }
 
 .section .slidewrap .slidelist  .left {
-    left:30px; /* 왼쪽 기준 30떨어지게 */
-    background: url("./img/left.png") center center / 100% no-repeat; /* 화살표 이미지를 백그라운드 속성으로 적용 */
+    left: -300px; /* 왼쪽 기준 30떨어지게 */
+    background: url("../img/left.png") center center / 100% no-repeat; /* 화살표 이미지를 백그라운드 속성으로 적용 */
 }
 
 .section .slidewrap .slidelist  .right {
-    right:30px;
-    background: url("./img/right.png") center center / 100% no-repeat;
+    right:-300px;
+    background: url("../img/right.png") center center / 100% no-repeat;
 }
 
 .section [id="slide01"]:checked ~ .slidewrap .slidelist > li {transform:translateX(0%);} /* 클릭이 되면*/
 .section [id="slide02"]:checked ~ .slidewrap .slidelist > li {transform:translateX(-100%);}
 .section [id="slide03"]:checked ~ .slidewrap .slidelist > li {transform:translateX(-200%);}
+
+.section input[id*="slide"] {display:none;}
+.section input[id="slide01"]:checked ~ .slidewrap li:nth-child(1) .left {left:30px;transition:all .35s ease .5s;} /* 1번 INPUT이 체크되면 1번 슬라이드의 왼쪽 화살표의 LEFT값이 변하면서 나타나도록 준 스타일 */
+	.section input[id="slide01"]:checked ~ .slidewrap li:nth-child(1) .right {right:30px;transition:all .35s ease .5s;} /* 1번 INPUT이 체크되면 1번 슬라이드의 오른쪽 화살표의 LEFT값이 변하면서 나타나도록 준 스타일 */
+	.section input[id="slide02"]:checked ~ .slidewrap li:nth-child(2) .left {left:30px;transition:all .35s ease .5s;} /* 2번 INPUT이 체크되면 1번 슬라이드의 왼쪽 화살표의 LEFT값이 변하면서 나타나도록 준 스타일 */
+	.section input[id="slide02"]:checked ~ .slidewrap li:nth-child(2) .right {right:30px;transition:all .35s ease .5s;} /* 2번 INPUT이 체크되면 1번 슬라이드의 오른쪽 화살표의 LEFT값이 변하면서 나타나도록 준 스타일 */
+	.section input[id="slide03"]:checked ~ .slidewrap li:nth-child(3) .left {left:30px;transition:all .35s ease .5s;} /* 3번 INPUT이 체크되면 1번 슬라이드의 왼쪽 화살표의 LEFT값이 변하면서 나타나도록 준 스타일 */
+    .section input[id="slide03"]:checked ~ .slidewrap li:nth-child(3) .right {right:30px;transition:all .35s ease .5s;} /* 3번 INPUT이 체크되면 1번 슬라이드의 오른쪽 화살표의 LEFT값이 변하면서 나타나도록 준 스타일 */
+    
+.label {
+    display : flex;
+    height : 26px;
+    width : 50px;
+    border-radius: 50px;
+    background-color: #111;
+    align-items : center;
+    justify-content: space-between;
+    padding : 5px;
+    position : relative;
+
+}
+
+body {
+    display : flex;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
+    transition: background 0.3s linear;
+}
+
+body.dark {
+    background-color: #292C35;
+}
+
+.fa-moon {
+    color:#f1c40f;
+}
+
+.fa-sun {
+    color:#f39c12;
+}
+
+* {
+    box-sizing: border-box;
+}
+.button {
+    display : flex;
+    justify-content: center;
+    margin-top : 20px;
+}
+.ball {
+    background-color: #fff;
+    border-radius: 50%;
+    height: 22px;
+    width: 22px;
+    position : absolute;
+    top : 2px;
+    left: 2px;
+    transition: transform 0.2s linear;
+
+}
+.checkbox {
+    opacity : 0; /*  체크박스 지우기*/
+    position: absolute;
+}
+
+.checkbox:checked + .label .ball {
+    transform : translateX(24px);
+}
