@@ -7,15 +7,18 @@ const input = document.getElementById("input");
 
 const getUser = async(username) => {
     const response = await fetch(API_USER + username);
-    const responseData = await response.json();
-
+    console.log("파싱 전: "+response);
+    const responseData = await response.json(); // 데이터 받아올때 객체로 parsing해야하는데 이게 대신?
+    console.log("파싱 후: "+responseData)
     createUserCard(responseData);    
     getRepos(username);
 }
 
 const getRepos = async (username) => {
     const response = await fetch(API_USER + username + "/repos");
+    console.log("파싱전 repo : "+ response)
     const responseData = await response.json();
+    console.log("파싱후 repo : "+ response)
     addReposToCard(responseData)
 
 }
