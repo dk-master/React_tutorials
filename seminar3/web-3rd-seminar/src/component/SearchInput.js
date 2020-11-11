@@ -15,7 +15,7 @@ function SearchInput ({onSubmit}) {
     }
     return <div>
         <form onSubmit={handleSubmit}> 
-        <input type="text " placeholder="github 프로필 등록" value ={input} onChange={handleChange}/>
+        <input type="text " placeholder="github 프로필 등록" value ={input} onChange={handleChange}/> {/* input에다 onChange무조건 선언해줘야해*/}
         </form>
     </div>
 }

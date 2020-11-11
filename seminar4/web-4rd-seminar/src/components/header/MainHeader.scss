@@ -1,0 +1,16 @@
+.main-header {
+    display : flex;
+    border : solid 1px;
+    height : 45px;
+    padding: 12px;
+    font-size : 14px;
+    &__icon {
+        
+    }
+    &__nav {
+        display : flex;
+    }
+    .empty {
+        flex : 1;
+    }
+}

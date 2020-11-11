@@ -1,0 +1,59 @@
+.card {
+    height: 280px;
+    border: solid 1px #ddd;
+    border-radius: 8px;
+    margin: 8px;
+    box-shadow: 1px 1px 5px #ddd;
+    position: relative;
+    .remove-button {
+        z-index: 3;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        width: 24px;
+        height: 24px;
+        opacity: 0;
+        border: solid 1px #999;
+        border-radius: 4px;
+        transition: opacity 0.2s;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &:hover {
+            background: #ddd;
+        }
+    }
+
+    &:hover {
+        cursor: pointer;
+        background: #eee;
+        .remove-button {
+            opacity: 1;
+        }
+    }
+
+    &__content {
+        padding: 4px 8px;
+    }
+    &__text {
+        font-size: 12px;
+    }
+    .image-area {
+        width: 100%;
+        height: 120px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-bottom: solid 1px #eee;
+        img {
+            border-radius: 4px 4px 0 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+    .name {
+        font-weight: 600;
+        font-size: 14px;
+    }
+}
