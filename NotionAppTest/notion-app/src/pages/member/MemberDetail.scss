@@ -1,0 +1,46 @@
+.member-detail {
+    width: 720px;
+    margin: 0 auto;
+
+    &__button-area {
+        display: flex;
+        padding-top: 80px;
+        width: 100%;
+        opacity: 0;
+        vertical-align: bottom;
+        &:hover {
+            opacity: 1;
+        }
+    }
+}
+
+.member-detail__content {
+    display: flex;
+    padding: 12px 0;
+    &.name {
+        font-size: 42px;
+        font-weight: 700;
+    }
+
+    .content-title {
+        width: 160px;
+        padding-right: 12px;
+        display: flex;
+        align-items: center;
+        font-size: 16px;
+        color: #777;
+        cursor: default;
+    }
+
+    .content-input {
+        cursor: pointer;
+        color: #444;
+        font-weight: 600;
+        font-size: 16px;
+    }
+}
+
+input {
+    border: none;
+    outline: none;
+}

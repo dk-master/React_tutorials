@@ -4,31 +4,31 @@ import Card from '../../components/card/Card';
 import Loading from '../../components/loading/Loading'
 import axios from 'axios';
 import {useState,useEffect} from 'react';
-function MemberList() {
-    const [membersState, setMembersState] = useState({
-        members: null,
-        status: 'idle',
-    })
+import { getMemberAPI, getMembersAPI } from '../../lib/api/memberAPI';
+function MemberList({history,match}) {
+    const [members, setMembers] = useState([]);
+    const [loading,setLoading] = useState(true);
+
 
     useEffect(() => {
         (async () => {
-            setMembersState({members: null, status: 'pending'});
-            try {
-                const result = await axios.get('http://ec2-13-124-127-8.ap-northeast-2.compute.amazonaws.com:3000/api/members')
-                setTimeout(() => setMembersState({members : result.data.data, status: 'resolved'}), 800);
-            } catch(e) {
-                setMembersState({members: null, status : 'rejected'});
-            }
+            const result = await getMembersAPI();
+            setMembers(result);
+            setTimeout(() => setLoading(false), 800);
         })(); // 여기서 함수 바로 실행
     }, []); // 앱을 실행할때 한번만 하라고 []
 
-    switch(membersState.status) {
-        case 'pending' :
-            return <Loading/>
-        case 'rejected' :
-            return <div>실패 page</div>
-        
-        case 'resolved' :
+    const removeCard = (evt) => {
+        evt.stopPropagation();
+        console.log("Remove CARD");
+    }
+
+    switch(loading) {
+        case true : 
+            return <Loading />
+
+
+        default : 
             return (
                 <div className="member-list">
                     <div className="member-list__title">파트원 소개</div>
@@ -43,15 +43,13 @@ function MemberList() {
                     </div>
                 <hr/>
                 <div className="member-list-content-wrapper">
-                    {membersState.members.map(member =>(
-                        <Card key ={`member-${member.id}`} memberData = {member}/>
+                    {members.map(member =>(
+                        <Card key ={`member-${member.id}`} route={{history, match}} memberData = {member} onRemoveCard={ removeCard }/>
                     ))}
                 </div>
                 </div>
             );
-            case 'idle' :
-                default :
-                        return <div>idle 입니다.</div>
+
     }
 }
 
