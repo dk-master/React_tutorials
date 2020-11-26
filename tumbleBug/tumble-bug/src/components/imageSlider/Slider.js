@@ -25,7 +25,7 @@ const SideTextTemplate = styled.div`
 
 
 function Slider({object}) {
-
+    
     const [chIdx,setChIdx] = useState(0); // 0으로 초기화 바뀌는 state부분을 생각
     const tmp = useRef(); // 변경가능한 값을 담고 있는 상자
     const onAutoIncrease = () => {

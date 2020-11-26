@@ -1,18 +1,18 @@
 import './App.css';
-import Grid from './components/Grid';
-import style from 'styled-components';
+// import Grid from './components/Grid';
+// import style from 'styled-components';
 
-import main_android_BW from '../src/imgs/main_android_BW.png';
+// import main_android_BW from '../src/imgs/main_android_BW.png';
 
-import main_design_BW from '../src/imgs/main_design_BW.jpg';
+// import main_design_BW from '../src/imgs/main_design_BW.jpg';
 
-import main_ios_BW from '../src/imgs/main_ios_BW.jpg';
+// import main_ios_BW from '../src/imgs/main_ios_BW.jpg';
 
-import main_plan_BW from '../src/imgs/main_plan_BW.jpg';
-import main_server_BW from '../src/imgs/main_server_BW.jpg';
+// import main_plan_BW from '../src/imgs/main_plan_BW.jpg';
+// import main_server_BW from '../src/imgs/main_server_BW.jpg';
 
-import main_web_BW from '../src/imgs/main_web_BW.jpg';
-
+// import main_web_BW from '../src/imgs/main_web_BW.jpg';
+import Counter from "./components/Counter";
 const partInfo = [
   {
       title: "Plan",
@@ -59,11 +59,12 @@ const PartWrap = style.div `
 
 function App() {
   return (
-    <PartWrap>
-    {partInfo.map(part =>(
-      <Grid key ={`part-${part.id}`} partInfo = {part}/>
-  ))}
-  </PartWrap>
+    <Counter/>
+  //   <PartWrap>
+  //   {partInfo.map(part =>(
+  //     <Grid key ={`part-${part.id}`} partInfo = {part}/>
+  // ))}
+  // </PartWrap>
   )
 }
 

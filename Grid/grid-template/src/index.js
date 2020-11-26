@@ -1,12 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+// 리덕스 추가
+import {createStore} from "redux";
+import {Provider} from "react-redux";
+import rootReducer from "./modules";
 import './index.css';
 import App from './App';
 
+const store = createStore(rootReducer); // 추가
+
+
 ReactDOM.render(
-  <React.StrictMode>
+  <Provider store ={store}>
     <App />
-  </React.StrictMode>,
+    </Provider>,
   document.getElementById('root')
 );
 
