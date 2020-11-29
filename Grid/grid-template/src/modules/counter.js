@@ -1,16 +1,25 @@
 import {createAction, handleActions} from "redux-actions";
 
+
+// ACTION TYPE 정의하기
 const INCREASE = "counter/INCREASE"; // 모듈이름 / 액션이름
 const DECREASE = "counter/DECREASE";
+const INPUT_CHANGE = 'counter/INPUT_CHANGE';
+const CHANGE_NAME = 'counter/CHANGE_NAME';
 
 // export const increase = () => ({type : INCREASE});
 // export const decrease = () => ({type : DECREASE});
 
+//ACTION TYPE 반환하는 함수 만들어주기
 export const increase = createAction(INCREASE);
 export const decrease = createAction(DECREASE);
+export const inputChange = createAction(INPUT_CHANGE, input => input);
+export const changeName = createAction(CHANGE_NAME, name=> name);
 
 const initialState = {
-    number : 0
+    number : 0,
+    name:"평범한 카운터",
+    inputName: ""
 }
 
 // Reducer 함수는 이전 상태와 액션 객체를 파라미터로 받는다.
@@ -41,8 +50,18 @@ const counter = handleActions(
         }),
         [DECREASE]: (state,action) => ( {
             number : state.number - 1
-        })
+        }),
+        [INPUT_CHANGE]: (state, {payload: input}) => ({
+            ...state,
+            inputName: input
+        }),
+        [CHANGE_NAME]: (state,{payload:name}) => ({
+            ...state,
+            name: name
+        }
     },
     initialState
 );
+
+
 export default counter;

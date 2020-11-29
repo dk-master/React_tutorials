@@ -8,7 +8,7 @@ function Member({match}) {
         <section style={{margin:"0 90px"}}>
             <Switch>
                 <Route exact path ={match.path} component={MemberList}/>
-                <Route path={`${match.path}/:id`} compoenent={MemberDetail}/>
+                <Route path={`${match.path}/:id`} component={MemberDetail}/>
             </Switch>
         </section>
     )

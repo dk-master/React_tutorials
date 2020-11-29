@@ -18,15 +18,15 @@ function MemberDetail({match}) {
         (async () => {
             try {
                 setMemberState({status: 'pending', member: null});
-                const result = await getMemberAPI(match.params.id);
-                console.log(result);
-                setTimeout(() => setMemberState({status: 'resolved', member: result}), 600);
+                const data = await getMemberAPI(match.params.id);
+                console.log(data);
+                setMemberState({status: 'resolved', member: data});
 
             }catch(e) {
                 setMemberState({status: 'rejected', member: null});
             }
         })();
-    }, []);
+    }, [match.params.id]);
 
     const onChangeInputs = (evt) => {
         const { name, value } = evt.target;
