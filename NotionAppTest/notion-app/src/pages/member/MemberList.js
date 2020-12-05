@@ -4,7 +4,7 @@ import Card from '../../components/card/Card';
 import Loading from '../../components/loading/Loading'
 import axios from 'axios';
 import {useState,useEffect} from 'react';
-import { getMemberAPI, getMembersAPI } from '../../lib/api/memberAPI';
+import {getMembers} from '../../lib/api/memberAPI';
 function MemberList({history,match}) {
     const [members, setMembers] = useState([]);
     const [loading,setLoading] = useState(true);
@@ -12,7 +12,7 @@ function MemberList({history,match}) {
 
     useEffect(() => {
         (async () => {
-            const result = await getMembersAPI();
+            const result = await getMembers();
             setMembers(result);
             setTimeout(() => setLoading(false), 800);
         })(); // 여기서 함수 바로 실행
