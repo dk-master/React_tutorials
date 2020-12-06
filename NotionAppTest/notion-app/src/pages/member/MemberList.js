@@ -26,7 +26,7 @@ function MemberList({history,match}) {
     switch(loading) {
         case true : 
             return <Loading />
-
+            
 
         default : 
             return (
