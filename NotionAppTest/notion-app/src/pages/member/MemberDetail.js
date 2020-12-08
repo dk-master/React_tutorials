@@ -28,7 +28,7 @@ function MemberDetail({match}) {
         })();
     }, [match.params.id]);
 
-    const onChangeInputs = async (evt) => {
+    const onChangeInputs = async (evt) => { // 여러개의 input 핸들링
         const { name, value } = evt.target;
         try {
             await memberAPI.updateMember(match.params.id, {
