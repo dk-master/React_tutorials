@@ -33,7 +33,7 @@ function MemberDetail({match}) {
         try {
             await memberAPI.updateMember(match.params.id, {
                 ...memberState.member,
-                [name] : value,
+                [name] : value, // []안에 있는 값을 키값으로 사용
             });
             setMemberState({
                 member : {

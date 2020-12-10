@@ -13,6 +13,7 @@ const getMembers = async() => {
     }
 }
 
+
 const getMember = async(id) => {
     try {
         const {data} = await axios.get(`${url}/${id}`);
